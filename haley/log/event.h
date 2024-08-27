@@ -37,7 +37,7 @@ private:
     std::string m_file;         // 文件名
     std::string m_threadName;   // 线程名
     uint32_t m_line;            // 行号
-    uint32_t m_threadID;        // 线程ID
+    uint32_t m_threadID;         // 线程ID
     uint32_t m_fiberID;         // 协程ID
     uint32_t m_elapse;          // 流逝的时间，单位ms
     uint64_t m_time;            // 时间戳

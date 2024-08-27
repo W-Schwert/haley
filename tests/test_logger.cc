@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "event.h"
+#include "utils.h"
 
 void test_logLevel() {
 #define XX(level) \
@@ -21,10 +22,11 @@ void test_logLevel() {
 
 void test_logEvent() {
     haley::LogEvent::ptr event = std::make_shared<haley::LogEvent>(__FILE__, "threadName", __LINE__,
-        0, 0, 0, time(0), haley::LogLevel::DEBUG);
+        haley::GetThreadID(), haley::GetFiberID(), haley::GetRunTime(), time(0), haley::LogLevel::DEBUG);
     event->format("test format %s.", "wan");
     std::cout << event->getContent() << " " << event->getFile() << " " << event->getLine() << " "
-        << haley::LogLevel::ToString(event->getLevel()) << std::endl;
+        << haley::LogLevel::ToString(event->getLevel()) << " " << event->getElapse() << " "
+        << event->getTime() << std::endl;
 }
 
 int main() {

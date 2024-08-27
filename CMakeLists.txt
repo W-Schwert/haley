@@ -8,6 +8,7 @@ set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O0 -fPIC -ggdb -std=c++11 -Wall -
 set(CMAKE_C_FLAGS "$ENV{CXXFLAGS} -rdynamic -O0 -fPIC -ggdb -std=c11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations")
 
 include_directories(haley/log)
+include_directories(haley/util)
 
 link_directories(${PROJECT_SOURCE_DIR}/lib)
 
@@ -15,6 +16,7 @@ option(BUILD_TEST "ON for complile test" ON)
 
 set(LIB_SRC
     haley/log/event.cc
+    haley/util/utils.cc
 )
 add_library(haley SHARED ${LIB_SRC})
 force_redefine_file_macro_for_sources(haley)
