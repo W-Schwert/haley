@@ -15,7 +15,9 @@ link_directories(${PROJECT_SOURCE_DIR}/lib)
 option(BUILD_TEST "ON for complile test" ON)
 
 set(LIB_SRC
+    haley/log/appender.cc
     haley/log/event.cc
+    haley/log/formatter.cc
     haley/util/utils.cc
 )
 add_library(haley SHARED ${LIB_SRC})
