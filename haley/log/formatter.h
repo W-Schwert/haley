@@ -11,7 +11,7 @@ class FormatItem {
 public:
     typedef std::shared_ptr<FormatItem> ptr;
     virtual ~FormatItem() {}
-    virtual void format(LogEvent::ptr event) = 0;
+    virtual void format(std::ostream& os, const std::string& logger_name, LogEvent::ptr event) = 0;
 };
 
 class LogFormatter {
@@ -38,7 +38,8 @@ public:
      *
      *  默认格式 "%d{%Y-%m-%d %H:%M:%S}%T%t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"
      */
-    LogFormatter(const std::string& pattern = "%d{%Y-%m-%d %H:%M:%S}%T%t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n");
+    LogFormatter(const std::string& pattern =
+        "%d{%Y-%m-%d %H:%M:%S}%T%t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n");
 
     std::string format(const std::string& logger_name, LogEvent::ptr event);
     std::ostream& format(std::ostream& ofs, const std::string& logger_name, LogEvent::ptr event);
