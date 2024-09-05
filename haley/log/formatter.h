@@ -49,6 +49,7 @@ public:
 private:
     void init();
 
+private:
     std::string m_pattern;
     std::vector<FormatItem::ptr> m_items;
     bool m_error;
