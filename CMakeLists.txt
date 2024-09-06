@@ -18,6 +18,7 @@ set(LIB_SRC
     haley/log/appender.cc
     haley/log/event.cc
     haley/log/formatter.cc
+    haley/log/logger.cc
     haley/util/utils.cc
 )
 add_library(haley SHARED ${LIB_SRC})
